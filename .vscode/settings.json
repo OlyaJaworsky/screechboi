@@ -1,0 +1,6 @@
+{
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.pythonPath": "/Users/stevenxie/.local/share/virtualenvs/screechboi-3tEeB8HB/bin/python"
+}

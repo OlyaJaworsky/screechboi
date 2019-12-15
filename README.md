@@ -1,9 +1,16 @@
 # screechboi
 
-A Reddit bot that performs sentiment analysis and screeches.
+_A Reddit bot that performs sentiment analysis and screeches._
 
 ## Usage
 
 ```bash
-python main.py
+# Clone repository.
+git clone https://github.com/OlyaJaworsky/screechboi
+
+# Enter project directory.
+cd screechboi
+
+# Run bot.
+python .
 ```

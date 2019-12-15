@@ -1,1 +1,1 @@
-# This file declares that "operations" is a package.s
+# This file declares that "bot" is a package.
