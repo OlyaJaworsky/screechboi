@@ -2,6 +2,7 @@
 .vscode/*
 .editorconfig
 .dockerignore
+.flake8
 
 
 # == PYTHON / WINDOWS ==

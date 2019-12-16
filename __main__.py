@@ -1,10 +1,12 @@
 import praw  # import external library named "praw"
+import util  # import './util.py'
 
 # Import pretrained "sentiment intensity analyzer".
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 bot_name = "screechboi"
 lexicon_file = "lexicon.txt"
+emoji_lexicon_file = "emoji_lexicon.txt"
 
 
 # This is the main function. It runs when this package is started as an
@@ -14,11 +16,17 @@ def main():
     reddit = praw.Reddit(
         bot_name, user_agent=f"script:{bot_name}:0.0.1 (by /u/reewithme)",
     )
+    print("Initialized PRAW.")
 
     # Initialize analyzer (instantiates the class).
-    analyzer = SentimentIntensityAnalyzer(lexicon_file=lexicon_file)
+    analyzer = SentimentIntensityAnalyzer(
+        lexicon_file=util.abspath(lexicon_file),
+        emoji_lexicon=util.abspath(emoji_lexicon_file),
+    )
+    print("Initialized VADER.")
 
-    print("Streaming inbox items:")
+    print("Ready! Waiting for interaction...")
+    username = reddit.user.me().name
     for message in reddit.inbox.stream(skip_existing=True):
         # Receive message.
         print(f">>> {message.author} <<<")
@@ -42,7 +50,7 @@ def main():
             reply = "ree"
 
         # Reply to message.
-        print(f"<<< {bot_name} >>>")
+        print(f"<<< {username} >>>")
         print("Replying with:")
         message.reply(reply)
         print(reply)
